@@ -1,13 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
+/* context */
+import { useContext } from 'react';
+import ApiContext from '../context/ApiContext';
+
+
 export default function PizzaList() {
 
+    /* context */
+    const { urlContext } = useContext(ApiContext);
+
     /* creiamo una const con useSate vuoto */
-    const [pizzeData, setPizzeData] = useState({})
+    const [pizzeData, setPizzeData] = useState({});
 
     /* creiamo una funzione per la chiamata API fetch */
-    function fetchData(url = "http://127.0.0.1:3000/pizze") {
+    function fetchData({ urlContext }) {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
