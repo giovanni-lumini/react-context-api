@@ -20,7 +20,6 @@ function App() {
         <BrowserRouter>
           {/* routes here */}
           <Routes>
-
             <Route element={<DefaultLayout />} >
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
