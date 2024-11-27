@@ -10,14 +10,14 @@ export default function PizzaList() {
 
     /* context */
     const { url } = useContext(ApiContext);
-    console.log({ url });
+    /* console.log({ url }); */
 
 
     /* creiamo una const con useSate vuoto */
     const [pizzeData, setPizzeData] = useState({});
 
     /* creiamo una funzione per la chiamata API fetch */
-    function fetchData(url) {
+    function fetchData() {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
@@ -31,7 +31,9 @@ export default function PizzaList() {
         fetchData()
     }
     /* con useEffect, la chiamata API avviene già all'apertura della pagina, senza cliccare sul button */
-    useEffect(fetchData, [])
+    useEffect(() => {
+        fetchData(url);
+    }, [url]);
 
     return (
         <>
