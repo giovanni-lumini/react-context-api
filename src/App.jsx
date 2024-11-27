@@ -15,19 +15,22 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        {/* routes here */}
-        <Routes>
-          <ApiContext.Provider value={{ url }}>
+      <ApiContext.Provider value={{ url }}>
+
+        <BrowserRouter>
+          {/* routes here */}
+          <Routes>
+
             <Route element={<DefaultLayout />} >
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/pizza-list" element={<PizzaList />} />
               <Route path="/pizza-list/:id" element={<SinglePizza />} />
             </Route>
-          </ApiContext.Provider>
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter >
+
+      </ApiContext.Provider >
     </>
   )
 }

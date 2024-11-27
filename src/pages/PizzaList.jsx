@@ -10,6 +10,8 @@ export default function PizzaList() {
 
     /* context */
     const { url } = useContext(ApiContext);
+    console.log({ url });
+
 
     /* creiamo una const con useSate vuoto */
     const [pizzeData, setPizzeData] = useState({});
