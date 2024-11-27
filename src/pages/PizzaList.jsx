@@ -9,13 +9,13 @@ import ApiContext from '../context/ApiContext';
 export default function PizzaList() {
 
     /* context */
-    const { urlContext } = useContext(ApiContext);
+    const { url } = useContext(ApiContext);
 
     /* creiamo una const con useSate vuoto */
     const [pizzeData, setPizzeData] = useState({});
 
     /* creiamo una funzione per la chiamata API fetch */
-    function fetchData({ urlContext }) {
+    function fetchData(url) {
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
